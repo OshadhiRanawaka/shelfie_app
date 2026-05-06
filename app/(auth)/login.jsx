@@ -2,7 +2,7 @@ import {
   StyleSheet,
   Text,
   Keyboard,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback
 } from "react-native";
 import { Link } from "expo-router";
 import { useState } from "react";
@@ -72,6 +72,8 @@ const Login = () => {
             Register instead
           </ThemedText>
         </Link>
+
+
       </ThemedView>
     </TouchableWithoutFeedback>
   );
