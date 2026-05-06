@@ -2,6 +2,8 @@ import { StyleSheet, Text , TextInput} from "react-native";
 import { Link } from "expo-router";
 import { Colors } from "../../constants/Colors";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
+
 
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
@@ -13,11 +15,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {user } = useUser();
+  const {user , login } = useUser();
 
   const handleSubmit = async () => {
-    console.log('current user', user);
-    console.log("login form submitted", email, password);
+    try {
+      await login(email, password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
