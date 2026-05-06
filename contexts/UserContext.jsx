@@ -13,7 +13,7 @@ export function UserProvider({ children }) {
       const response = await account.get();
       setUser(response);
     } catch (error) {
-      console.log(error);
+      throw Error (error.message);
     }
   }
 
@@ -21,7 +21,7 @@ export function UserProvider({ children }) {
     try {
       await account.createEmailPasswordUser(ID.unique(), email, password);
     } catch (error) {
-      console.log(error);
+      throw Error (error.message);
     }
   }
 
